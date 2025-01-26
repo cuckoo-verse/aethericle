@@ -1,7 +1,7 @@
 {
     "Waitlist": {
-        "title": "Remeet 'Shenzhou Broken-Sword Legend'",
-        "description": "A new open-source visual novel reading project developed with Next.js and React.",
+        "title": "The Sword Intent is Long, Continuing the Past Connection.",
+        "description": "A new open-source visual novel reader built with Next.js, React and Turborepo, bringing the epic tales of 'Shenzhou Broken-Sword Legend'( written by miHoYo ) to Life.",
         "disclaimer-title": "Disclaimer",
         "disclaimer-content": "This project, entitled 'Aethericle', is an independent work created without any affiliation or endorsement from miHoYo Co., Ltd. All references to miHoYo's intellectual property are made solely for academic purposes and not intended to infringe any applicable laws or rights."
     }
