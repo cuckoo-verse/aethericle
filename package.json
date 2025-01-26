@@ -1,7 +1,7 @@
 {
   "name": "aethericle",
   "version": "0.1.0",
-  "packageManager": "bun@1.1.42",
+  "packageManager": "bun@1.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
