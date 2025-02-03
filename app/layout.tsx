@@ -3,6 +3,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
 import { Geist, Geist_Mono } from "next/font/google";
+import { Providers } from "@/components/providers";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -29,15 +30,17 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
+    <html lang={locale} suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <NextIntlClientProvider messages={messages}>
-          {children}
+          <Providers>
+            {children}
+          </Providers>
         </NextIntlClientProvider>
       </body>
-      <GoogleAnalytics gaId={process.env.GA_ID!}/>
+      <GoogleAnalytics gaId={process.env.GA_ID!} />
     </html>
   );
 }
