@@ -1,8 +1,25 @@
 {
+    "Home": {
+        "recently-read": "Last time we talked about...",
+        "discover": "Discover"
+    },
     "Waitlist": {
         "title": "The Sword Intent is Long, Continuing the Past Connection.",
         "description": "A new open-source visual novel reader built with Next.js, React and Turborepo, bringing the epic tales of 'Shenzhou Broken-Sword Legend'( written by miHoYo ) to Life.",
         "disclaimer-title": "Disclaimer",
         "disclaimer-content": "This project, entitled 'Aethericle', is an independent work created without any affiliation or endorsement from miHoYo Co., Ltd. All references to miHoYo's intellectual property are made solely for academic purposes and not intended to infringe any applicable laws or rights."
+    },
+    "app-header": {
+        "home": "Home",
+        "library": "Aethericle",
+        "search": "Search",
+        "search-placeholder": "What do you want to read?" 
+    },
+    "sidebar": {
+        "bookshelf": "Bookshelf",
+        "import-novel": "Import Novel",
+        "word-count": "Words: {{count}}",
+        "reading-progress": "Progress: {{progress}}%",
+        "add-novel": "Add Novel"
     }
 }

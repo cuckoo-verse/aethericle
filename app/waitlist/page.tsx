@@ -5,35 +5,6 @@ import { useTranslations } from "next-intl"
 import { useState } from "react"
 import { Loader2 } from "lucide-react"
 
-const backgroundStyle = `
-  .bg-pattern {
-    position: fixed;
-    top: -5%;
-    left: -5%;
-    width: 110%;
-    height: 110%;
-    background:url("https://webstatic.mihoyo.com/bh3/event/novel-7swords/images/bg.7a33691a.jpg") center center;
-    background-size: cover;
-    filter: blur(4px);
-    pointer-events: none;
-    z-index: 1;
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
-    }
-  }
-
-  .content {
-    position: relative;
-    z-index: 2;
-  }
-`
-
 function XIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" height="1em" width="1em" {...props}>
@@ -63,7 +34,7 @@ function SocialIcon({
 function Button({ children, className, ...props }: React.ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
     <button
-      className={`bg-black hover:bg-gray-800 text-white items-center font-semibold px-4 py-2 rounded-xl transition-all duration-300 ease-in-out focus:outline-none ${className}`}
+      className={`bg-black hover:bg-gray-800 text-white items-center font-semibold px-4 py-2 rounded-xl transition-all duration-300 ease-in-out focus:outline-hidden ${className}`}
       {...props}
     >
       {children}
@@ -74,7 +45,7 @@ function Button({ children, className, ...props }: React.ButtonHTMLAttributes<HT
 function Input({ className, ...props }: React.InputHTMLAttributes<HTMLInputElement>) {
   return (
     <input
-      className={`w-full border-0 bg-transparent text-white placeholder:text-gray-400 focus:ring-0 focus:border-transparent focus-visible:border-transparent focus:outline-none active:ring-0 active:outline-none focus-visible:ring-0 focus-visible:outline-none active:border-transparent focus-visible:ring-offset-0 ${className}`}
+      className={`w-full border-0 bg-transparent text-white placeholder:text-gray-400 focus:ring-0 focus:border-transparent focus-visible:border-transparent focus:outline-hidden active:ring-0 active:outline-hidden focus-visible:ring-0 focus-visible:outline-hidden active:border-transparent focus-visible:ring-offset-0 ${className}`}
       {...props}
     />
   )
@@ -150,17 +121,12 @@ function WaitlistSignup() {
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex items-center justify-center">
-      <style jsx global>
-        {backgroundStyle}
-      </style>
-      {/* 黑色遮罩层 */}
-      <div className="fixed inset-0 bg-black animate-fade-out z-50" />
-      {/* 背景和内容 */}
-      <div className="bg-pattern" />
-      <div className="content w-full animate-fade-in opacity-0">
+    <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      <div className="fixed inset-0 bg-black animate-fade-out" style={{ zIndex: -1 }} />
+      <div className="fixed top-[-5%] left-[-5%] w-[110%] h-[110%] bg-center bg-[url('https://webstatic.mihoyo.com/bh3/event/novel-7swords/images/bg.7a33691a.jpg')] before:absolute before:inset-0 before:bg-black before:opacity-80 blur-sm" style={{ zIndex: 0 }} />
+      <div className="relative w-full animate-fade-in">
         <WaitlistSignup />
       </div>
-    </main>
+    </div>
   )
 }

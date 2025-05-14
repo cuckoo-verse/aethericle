@@ -1,6 +1,6 @@
 import { globalData } from "@/data/global"
 
-export function Footer() {
+export function AppFooter() {
     return (
         <div>
 

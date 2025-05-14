@@ -1,14 +1,25 @@
-"use client"
+import { getTranslations } from "next-intl/server"
+import { Hello } from "@/components/hello"
 
-import type React from "react"
-import { useTranslations } from "next-intl"
-import { useState } from "react"
-import { Loader2 } from "lucide-react"
+export default async function Home() {
+  const t = await getTranslations("Home")
 
-export default function Home() {
   return (
-    <main className="min-h-screen flex items-center justify-center">
-      hello
-    </main>
+    <div className="flex flex-col gap-2">
+      <h3>{t('recently-read')}</h3>
+      <div className="grid grid-cols-3 gap-2">
+        <div className="w-full h-20 bg-default-200 rounded-large" />
+        <div className="w-full h-20 bg-default-200 rounded-large" />
+        <div className="w-full h-20 bg-default-200 rounded-large" />
+        <div className="w-full h-20 bg-default-200 rounded-large" />
+        <div className="w-full h-20 bg-default-200 rounded-large" />
+        <div className="w-full h-20 bg-default-200 rounded-large" />
+      </div>
+
+      <h1>{t('discover')}</h1>
+      <div className="w-full h-30 bg-default-200 rounded-large" />
+
+      <Hello />
+    </div>
   )
 }

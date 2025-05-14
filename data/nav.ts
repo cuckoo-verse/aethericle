@@ -8,7 +8,7 @@ interface NavMainItem {
   items?: NavMainSubItem[]
 }
 
-interface NavMainSubItem {
+  interface NavMainSubItem {
   title: string
   url: string
 }

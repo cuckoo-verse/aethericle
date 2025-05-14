@@ -12,6 +12,11 @@ export function middleware(request: NextRequest) {
   const response = NextResponse.next()
   response.cookies.set('locale', locale)
   
+  // 检测 Electron 环境
+  const userAgent = request.headers.get('user-agent') || ''
+  const isElectron = userAgent.includes('Electron')
+  response.headers.set('x-electron', isElectron.toString())
+  
   return response
 }
 

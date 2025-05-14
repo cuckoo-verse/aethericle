@@ -1,8 +1,25 @@
 {
+    "Home": {
+        "recently-read": "上回说到...",
+        "discover": "发现"
+    },
     "Waitlist": {
         "title": "剑意长存，再续前尘。",
         "description": "一个使用Next.js、React和Turborepo构建的全新开源 视觉小说 解析，将 miHoYo 创作的《神州折剑录》忘乎我存般的故事生动地呈现。",
         "disclaimer-title": "免责声明",
         "disclaimer-content": "本项目\"Aethericle\"是一个独立作品，与米哈游有限公司没有任何从属关系或认可。对米哈游知识产权的任何引用仅用于学术目的，不意图侵犯任何适用法律或权利。"
+    },
+    "app-header": {
+        "home": "主页",
+        "search": "搜索",
+        "library": "咕读",
+        "search-placeholder": "想要阅读什么？" 
+    },
+    "sidebar": {
+        "bookshelf": "书架",
+        "import-novel": "导入小说",
+        "word-count": "字数：{{count}}",
+        "reading-progress": "已读进度：{{progress}}%",
+        "add-novel": "添加小说"
     }
 }

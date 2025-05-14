@@ -1,10 +1,11 @@
 # Aethericle
 
+[Go back](/README.md)
+
 [![License](https://img.shields.io/badge/License-Apache%202.0-white.svg)](https://opensource.org/licenses/Apache-2.0)
 ![Project Status](https://img.shields.io/badge/Status-Active%20Development-white)
 
-> **A fan-made Unofficial Honkai Impact 3rd Visual Novel Reader  based on Next.js for enhancing the reading experience of Honkai Impact 3rd's publicly available visual novel content.**  
-> *Developed with ❤️ by Choneas*
+> **A fan-made Unofficial Honkai Impact 3rd Visual Novel Reader  based on Next.js for enhancing the reading experience of Honkai Impact 3rd's publicly available visual novel content.** 
 
 ---
 
