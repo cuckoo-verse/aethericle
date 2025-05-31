@@ -13,10 +13,10 @@
     "start": "cross-env NODE_ENV=production next start"
   },
   "dependencies": {
-    "@cuckoo-verse/auth": "workspace:*",
     "@heroui/react": "^2.7.6-beta.2",
     "@heroui/system": "^2.4.13-beta.2",
     "@heroui/theme": "^2.4.13-beta.2",
+    "@cuckoo-verse/auth": "workspace:*",
     "@next/third-parties": "^15.1.6",
     "@radix-ui/react-avatar": "^1.1.2",
     "@radix-ui/react-collapsible": "^1.1.2",
@@ -37,7 +37,7 @@
     "lucide-react": "^0.501.0",
     "mongodb": "^6.13.0",
     "mongoose": "^8.11.0",
-    "next": "^15.2.1",
+    "next": "workspace:",
     "next-intl": "^3.26.3",
     "next-themes": "^0.4.4",
     "react": "^19.0.0",
