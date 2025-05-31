@@ -1,6 +1,6 @@
 # Aethericle
 
-English | [简体中文](https://github.com/choneas/aethericle/blob/main/docs/CONTRIBUTING-zh-CN.md)
+English | [简体中文](https://github.com/choneas/aethericle/blob/main/docs/README-zh-CN.md)
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-white.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-white.svg)](code_of_conduct.md)
