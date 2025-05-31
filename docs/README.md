@@ -1,6 +1,6 @@
 # Aethericle
 
-English | [简体中文](./README-zh-CN.md)
+English | [简体中文](https://github.com/choneas/aethericle/blob/main/docs/CONTRIBUTING-zh-CN.md)
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-white.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-white.svg)](code_of_conduct.md)
@@ -18,10 +18,10 @@ Aethericle draws inspiration from [*Shenzhou Broken-Sword Legend*](https://webst
 > This project is a community-driven open-source initiative, non-commercial and non-profit in nature. It is not affiliated with [miHoYo](https://www.mihoyo.com) or its subsidiaries. All used content is marked with miHoYo copyright and relevant legal statements. The project follows the [《崩坏3》同人衍生作品创作指引 V3.0 (Honkai Impact 3rd Derivative Works Creation Guide V3.0)](https://bh3.mihoyo.com/news/695/120990) for secondary creation.
 
 ## ✒️ Contribution
-Thank you very much for taking the time to participate in this project. For more information, please refer to the [Contribution Guide](./CONTRIBUTING.md).
+Thank you very much for taking the time to participate in this project. For more information, please refer to the [Contribution Guide](https://github.com/choneas/aethericle/blob/main/docs/CONTRIBUTING.md).
 
 ## 📜 License
-[Apache 2.0](../LICENSE.md)
+[Apache 2.0](https://github.com/choneas/aethericle/blob/main/LICENSE.md)
 
 <br />
 
