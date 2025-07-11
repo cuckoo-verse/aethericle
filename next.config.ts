@@ -7,7 +7,6 @@ const withNextIntl = createNextIntlPlugin(
 )
 
 const nextConfig: NextConfig = {
-  output: process.env.NEXT_PLATFORM === 'web' ? undefined : 'standalone',
   transpilePackages: ['@cuckoo-verse/auth'],
   images: {
     remotePatterns: [

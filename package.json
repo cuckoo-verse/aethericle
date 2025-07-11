@@ -12,9 +12,8 @@
     "dev:electron:build": "tsup --watch",
     "dev:electron:start": "cross-env NODE_ENV=development nodemon",
     "dev": "concurrently \"bun run dev:next\" \"bun run dev:electron:build\" \"bun run dev:electron:start\"",
-    "build:next": "cross-env NEXT_PLATFORM=desktop NODE_ENV=production next build",
     "build:electron": "tsup",
-    "build": "bun run build:next && bun run build:electron",
+    "build": "bun run build:electron",
     "prepare-build": "node scripts/prepare-build.cjs",
     "pack": "bun run build && bun run prepare-build && electron-builder",
     "start": "cross-env NODE_ENV=production next start",
@@ -72,29 +71,8 @@
     "asar": true,
     "executableName": "Aethericle",
     "appId": "com.choneas.aethericle",
-    "asarUnpack": [
-      "node_modules/next",
-      "node_modules/@img",
-      "**/*.{node,dll}"
-    ],
     "files": [
-      "electron/dist/**",
-      {
-        "from": ".next/standalone",
-        "to": "app",
-        "filter": [
-          "!**/.env",
-          "!**/package.json"
-        ]
-      },
-      {
-        "from": ".next/static",
-        "to": "app/.next/static"
-      },
-      {
-        "from": "public",
-        "to": "app/public"
-      }
+      "electron/dist/**"
     ],
     "extraMetadata": {
       "dependencies": {
