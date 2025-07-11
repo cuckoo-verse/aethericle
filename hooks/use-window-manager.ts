@@ -1,7 +1,7 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { useElectron } from './use-electron'
+import { useCallback, useEffect, useState } from 'react'
+import { useIsElectron } from '@/hooks/use-is-electron'
 
 /**
  * 窗口可用选项接口
@@ -18,43 +18,36 @@ export type WindowOptions = Partial<Electron.BrowserWindowConstructorOptions>
  * @returns 窗口管理器对象
  */
 export function useWindowManager() {
-  const isElectron = useElectron()
+  const isElectron = useIsElectron()
   const [isMinimized, setIsMinimized] = useState(false)
 
   /**
    * 初始化 Electron IPC 事件监听
    */
   useEffect(() => {
-    if (!isElectron || !window.electron) return
-
-    // 监听窗口状态变化
-    const stateCleanup = window.electron.ipcRenderer.on('window:state-changed', 
-      (event: Electron.IpcRendererEvent, state: { isMinimized: boolean }) => {
-        setIsMinimized(state.isMinimized)
-    })
-
-    return () => {
-      stateCleanup()
+    if (isElectron) {
+      const handler = (_: any, state: boolean) => setIsMinimized(state)
+      window.electron.ipcRenderer.on('window-minimized-state', handler)
     }
   }, [isElectron])
 
   /**
    * 最小化当前窗口
    */
-  const minimize = () => {
-    window.electron?.window.minimize()
-  }
+  const minimize = useCallback(() => {
+    if (isElectron) {
+      window.electron.ipcRenderer.send('window-minimize')
+    }
+  }, [isElectron])
 
   /**
    * 关闭当前窗口
    */
-  const close = () => {
-    window.electron?.window.close()
-  }
+  const close = useCallback(() => {
+    if (isElectron) {
+      window.electron.ipcRenderer.send('window-close')
+    }
+  }, [isElectron])
 
-  return {
-    isMinimized,
-    minimize,
-    close,
-  }
+  return { isMinimized, minimize, close }
 }

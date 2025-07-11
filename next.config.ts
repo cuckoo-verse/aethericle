@@ -7,7 +7,24 @@ const withNextIntl = createNextIntlPlugin(
 )
 
 const nextConfig: NextConfig = {
-  output: "standalone"
+  output: process.env.NEXT_PLATFORM === 'web' ? undefined : 'standalone',
+  transpilePackages: ['@cuckoo-verse/auth'],
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'webstatic.mihoyo.com',
+        port: '',
+      }
+    ]
+  },
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ['@svgr/webpack'],
+    })
+    return config
+  },
 };
 
 export default withNextIntl(nextConfig);

@@ -1,47 +1,50 @@
 {
   "name": "aethericle",
   "version": "0.1.0",
+  "type": "module",
+  "main": "electron/dist/main.cjs",
   "packageManager": "bun@1.2.4",
   "private": true,
+  "author": "Choneas",
+  "description": "A reader and editor for visual novels.",
   "scripts": {
-    "dev:next": "NODE_ENV=development next dev --turbopack",
-    "dev:electron": "NODE_ENV=development tsc -p ./electron && electron ./electron/dist/main.js",
-    "dev": "concurrently \"bun run dev:next\" \"bun run dev:electron\"",
-    "build:next": "cross-env NODE_ENV=production next build",
-    "build:electron": "cross-env NODE_ENV=production tsc -p ./electron && electron-builder",
+    "dev:next": "cross-env NEXT_PLATFORM=web NODE_ENV=development next dev --turbopack",
+    "dev:electron:build": "tsup --watch",
+    "dev:electron:start": "cross-env NODE_ENV=development nodemon",
+    "dev": "concurrently \"bun run dev:next\" \"bun run dev:electron:build\" \"bun run dev:electron:start\"",
+    "build:next": "cross-env NEXT_PLATFORM=desktop NODE_ENV=production next build",
+    "build:electron": "tsup",
     "build": "bun run build:next && bun run build:electron",
-    "start": "cross-env NODE_ENV=production next start"
+    "prepare-build": "node scripts/prepare-build.cjs",
+    "pack": "bun run build && bun run prepare-build && electron-builder",
+    "start": "cross-env NODE_ENV=production next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "@heroui/react": "^2.7.6-beta.2",
+    "@cuckoo-verse/auth": "workspace:*",
+    "@heroui/react": "^2.8.0-beta.10",
     "@heroui/system": "^2.4.13-beta.2",
     "@heroui/theme": "^2.4.13-beta.2",
-    "@cuckoo-verse/auth": "workspace:*",
     "@next/third-parties": "^15.1.6",
-    "@radix-ui/react-avatar": "^1.1.2",
-    "@radix-ui/react-collapsible": "^1.1.2",
-    "@radix-ui/react-dialog": "^1.1.10",
-    "@radix-ui/react-dropdown-menu": "^2.1.5",
-    "@radix-ui/react-select": "^2.2.2",
-    "@radix-ui/react-separator": "^1.1.4",
-    "@radix-ui/react-slot": "^1.2.0",
-    "@radix-ui/react-tooltip": "^1.2.3",
+    "@svgr/webpack": "^8.1.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "concurrently": "^9.1.2",
-    "electron": "^35.2.0",
-    "electron-builder": "^25.1.8",
+    "culori": "^4.0.2",
     "electron-win-state": "^1.1.22",
     "framer-motion": "^12.6.5",
     "get-port-please": "^3.1.2",
     "lucide-react": "^0.501.0",
-    "mongodb": "^6.13.0",
     "mongoose": "^8.11.0",
-    "next": "workspace:",
+    "next": "^15.3.4",
     "next-intl": "^3.26.3",
     "next-themes": "^0.4.4",
+    "overlayscrollbars": "^2.11.4",
+    "overlayscrollbars-react": "^0.5.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-resizable-panels": "^3.0.3",
+    "sharp": "^0.33.2",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
     "turbo": "^2.3.4",
@@ -56,8 +59,58 @@
     "electron-reloader": "^1.2.3",
     "eslint": "^9",
     "eslint-config-next": "15.1.6",
+    "electron": "35.2.0",
+    "electron-builder": "^25.1.8",
+    "fs-extra": "^11.2.0",
+    "nodemon": "^3.1.10",
     "postcss": "^8",
     "tailwindcss": "^4.1.3",
+    "tsup": "^8.2.3",
     "typescript": "^5"
+  },
+  "build": {
+    "asar": true,
+    "executableName": "Aethericle",
+    "appId": "com.choneas.aethericle",
+    "asarUnpack": [
+      "node_modules/next",
+      "node_modules/@img",
+      "**/*.{node,dll}"
+    ],
+    "files": [
+      "electron/dist/**",
+      {
+        "from": ".next/standalone",
+        "to": "app",
+        "filter": [
+          "!**/.env",
+          "!**/package.json"
+        ]
+      },
+      {
+        "from": ".next/static",
+        "to": "app/.next/static"
+      },
+      {
+        "from": "public",
+        "to": "app/public"
+      }
+    ],
+    "extraMetadata": {
+      "dependencies": {
+        "@cuckoo-verse/auth": "workspace:*"
+      }
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "linux": {
+      "target": [
+        "deb"
+      ],
+      "category": "Development"
+    }
   }
 }

@@ -34,7 +34,7 @@ const navMain: NavMainItem[] = [
   },
 ]
 
-const navAvatarUser: NavAvatarUser = {
+const avatarUser: NavAvatarUser = {
   name: "shadcn",
   email: "m@example.com",
   avatar: "/avatars/shadcn.jpg",
@@ -53,4 +53,4 @@ const navNovels: NavNovel[] = [
   }
 ]
 
-export { navMain, navAvatarUser, navNovels}
+export { navMain, avatarUser, navNovels}

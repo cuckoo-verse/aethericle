@@ -1,5 +1,5 @@
 import { contextBridge, ipcRenderer, IpcRendererEvent } from 'electron'
-import type { BrowserWindowConstructorOptions } from 'electron'
+// import type { BrowserWindowConstructorOptions } from 'electron'
 
 contextBridge.exposeInMainWorld('electron', {
   ipcRenderer: {

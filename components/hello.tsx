@@ -5,13 +5,13 @@ import { useDisclosure } from "@heroui/modal"
 import { Button } from "@heroui/button"
 import { AuthModal } from "@cuckoo-verse/auth"
 import Link from "next/link"
-import { useElectron } from '@/hooks/use-electron'
+import { useIsElectron } from '@/hooks/use-is-electron'
 import { useWindowManager } from '@/hooks/use-window-manager'
 
 export function Hello() {
   const locale = useLocale()
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
-  const isElectron = useElectron()
+  const isElectron = useIsElectron()
   const { minimize, close, isMinimized } = useWindowManager()
 
   return (

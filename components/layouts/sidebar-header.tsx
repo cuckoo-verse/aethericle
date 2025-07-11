@@ -4,26 +4,26 @@ import { BookIcon } from "lucide-react"
 import { useTranslations } from "next-intl"
 import { cn } from "@/utils/cn"
 import { useSidebarStore } from "@/store/sidebar"
-import { Button } from "@/components/ui/button"
+import { Button } from "@heroui/react"
 
 interface SidebarHeaderProps {
   isCollapsed: boolean
 }
 
 export function SidebarHeader({ isCollapsed }: SidebarHeaderProps) {
-  const t = useTranslations("sidebar")
+  const t = useTranslations("sidebar-header")
   const { toggleCollapse } = useSidebarStore()
 
   return (
     <Button
-      variant="ghost"
+      disableRipple
+      variant="light"
       className={cn(
-      `items-center gap-2 w-auto`,
-      "hover-to-opacity",
-      "hover:bg-transparent hover:cursor-pointer",
-      isCollapsed ? "justify-start ml-2" : "justify-start"
+        "sticky z-10 items-center gap-2 w-auto bg-content1",
+        "bg-transparent hover:bg-transparent active:bg-transparent focus:bg-transparent data-[hover]:bg-transparent",
+        isCollapsed ? "justify-start ml-2" : "justify-start"
       )}
-      onClick={toggleCollapse}
+      onPress={toggleCollapse}
     >
       <BookIcon className="shrink-0 aspect-square" size={16} />
       {!isCollapsed && (

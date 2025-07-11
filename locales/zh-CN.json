@@ -9,17 +9,20 @@
         "disclaimer-title": "免责声明",
         "disclaimer-content": "本项目\"Aethericle\"是一个独立作品，与米哈游有限公司没有任何从属关系或认可。对米哈游知识产权的任何引用仅用于学术目的，不意图侵犯任何适用法律或权利。"
     },
-    "app-header": {
+    "topbar": {
         "home": "主页",
         "search": "搜索",
         "library": "咕读",
         "search-placeholder": "想要阅读什么？" 
     },
-    "sidebar": {
+    "sidebar-header": {
         "bookshelf": "书架",
         "import-novel": "导入小说",
         "word-count": "字数：{{count}}",
         "reading-progress": "已读进度：{{progress}}%",
         "add-novel": "添加小说"
+    },
+    "sidebar-item": {
+        "word-count": "{{count}}字"
     }
 }

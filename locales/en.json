@@ -9,17 +9,20 @@
         "disclaimer-title": "Disclaimer",
         "disclaimer-content": "This project, entitled 'Aethericle', is an independent work created without any affiliation or endorsement from miHoYo Co., Ltd. All references to miHoYo's intellectual property are made solely for academic purposes and not intended to infringe any applicable laws or rights."
     },
-    "app-header": {
+    "topbar": {
         "home": "Home",
         "library": "Aethericle",
         "search": "Search",
         "search-placeholder": "What do you want to read?" 
     },
-    "sidebar": {
+    "sidebar-header": {
         "bookshelf": "Bookshelf",
         "import-novel": "Import Novel",
         "word-count": "Words: {{count}}",
         "reading-progress": "Progress: {{progress}}%",
         "add-novel": "Add Novel"
+    },
+    "sidebar-item": {
+        "word-count": "{{count}} words"
     }
 }
